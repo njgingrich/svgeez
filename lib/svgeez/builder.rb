@@ -10,6 +10,7 @@ module Svgeez
       @source = Source.new(options)
       @destination = Destination.new(options)
       @svgo = options.fetch('svgo', false)
+      @svg_attributes = options.fetch('attributes', 'style="display: none;"')
 
       raise SOURCE_IS_DESTINATION_MESSAGE if source_is_destination?
       raise SOURCE_DOES_NOT_EXIST unless source_exists?
@@ -44,7 +45,7 @@ module Svgeez
       file_contents = Elements::SvgElement.new(source, destination).build
       file_contents = Optimizer.new.optimize(file_contents) if @svgo
 
-      file_contents.insert(4, ' style="display: none;"')
+      file_contents.insert(4, " #{@svg_attributes}")
     end
 
     def destination_file_path

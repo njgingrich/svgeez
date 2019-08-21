@@ -32,6 +32,7 @@ module Svgeez
         command.option 'source', '-s', '--source [FOLDER]', 'Source folder (defaults to ./_svgeez)'
         command.option 'destination', '-d', '--destination [OUTPUT]', 'Destination file or folder (defaults to ./svgeez.svg)'
         command.option 'svgo', '--with-svgo', 'Optimize source SVGs with SVGO before sprite generation (non-destructive)'
+        command.option 'attributes', '-a', '--attributes [ATTRS]', 'Attributes for the outputted SVG file (defaults to \'style="display:none;"\''
       end
     end
   end
